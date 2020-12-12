@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Blogger</title>
+    <title>@yield('title')</title>
         @include('user/layouts/header')
 
   </head>

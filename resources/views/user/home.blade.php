@@ -1,5 +1,6 @@
 @extends('user/app')
 
+@section('title', 'myblog')
 @section('main-content')
 
 <section class="banner">
