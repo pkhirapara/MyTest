@@ -19,6 +19,9 @@
                             <div class="blog-form">
                               <form action="{{ url('/admin-panel/add-blog-post') }}" method="post" enctype="multipart/form-data">
                               @csrf
+                              @if(session('response'))
+                                <div class="alert alert-success">{{session('response')}}</div>
+                              @endif
                               <div class="form-group form-row">
                                     <label class="col-md-3">Select categoery </label>
                                     <div class="col-md-9">

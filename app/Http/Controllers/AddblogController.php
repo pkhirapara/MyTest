@@ -36,7 +36,7 @@ class AddblogController extends Controller
         $file->move($destinationPath, $file->getClientOriginalName());
         $blog->img_name=$file_name;
         $blog->save();
-        return redirect('/admin-panel/add-blog')->with('response', 'Every Thing is Ok');
+        return redirect('/admin-panel/add-blog')->with('response', 'Everything is Ok');
 
     }
 }
