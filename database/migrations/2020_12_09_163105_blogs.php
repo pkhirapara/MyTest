@@ -34,3 +34,5 @@ class Blogs extends Migration
         Schema::dropIfExists('blogs');
     }
 }
+
+

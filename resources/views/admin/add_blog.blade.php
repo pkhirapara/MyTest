@@ -17,14 +17,18 @@
                               </div>
                             </div>
                             <div class="blog-form">
-                              <form action="">
+                              <form action="{{ url('/admin-panel/add-blog-post') }}" method="post" enctype="multipart/form-data">
+                              @csrf
                               <div class="form-group form-row">
                                     <label class="col-md-3">Select categoery </label>
                                     <div class="col-md-9">
                                     <select  class="form-control" name="cate">
                                        <option>Select categoery</option>
-                                      
-
+                                       @if(count($cate_date)>0)
+                                        @foreach($cate_date->all() as $cate_vale)
+                                             <option value="{{$cate_vale->cate_name}}">{{$cate_vale->cate_name}}</option>
+                                        @endforeach
+                                      @endif
                                </select>
                                     </div>
                                 </div>
@@ -44,7 +48,7 @@
                                 <div class="form-group form-row">
                                   <label class="col-md-3">Upload Image</label>
                                   <div class="col-md-9">
-                                    <input type="file" id="image" />
+                                    <input type="file" id="image" name="blog_pic"/>
                                   </div>
                                 </div>
                                 <div class="form-group form-row">

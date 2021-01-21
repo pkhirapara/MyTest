@@ -4,10 +4,6 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-/**
- * @file
- * Description of what this module (or file) is doing.
- */
 class CreateUsersTable extends Migration
 {
     /**
@@ -17,6 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
