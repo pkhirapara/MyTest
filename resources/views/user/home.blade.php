@@ -20,59 +20,33 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-md-4">
-    				<div class="blog-box">
-    					<img src="{{asset('images/img1.jpg')}}" alt="blog1" />
-    					<h3>Sample blog post 1</h3>
-    					<p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-    					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-    					<a href="detail.html" class="btn btn-danger">Read more...</a>
-    				</div>
+                    <div class="dash-left">
+                        <ul>
+                            <li class="active"><a href="{{ url('/admin-panel')}}" class="active">Category</a></li>
+                            @foreach($cate_data as $cate_value)
+                                <li><a href="{{ URL::to('/?val='.$cate_value->cate_name) }}">{{ $cate_value->cate_name }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
     			</div>
-    			<div class="col-md-4">
-    				<div class="blog-box">
-    					<img src="{{asset('images/img2.jpg')}}" alt="blog1" />
-    					<h3>Sample blog post 2</h3>
-    					<p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-    					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-    					<a href="detail.html" class="btn btn-danger">Read more...</a>
-    				</div>
+    			<div class="col-md-8">
+                    <div class="container-fluid">
+                        <div class="row">
+                            @foreach($blog_data as $blog_value)
+                                <div class="col-md-4">
+                                    <div class="blog-box">
+                                        <img src="{{$blog_value->img_name}}" alt="blog1" style="height:200px;width:100%"/>
+                                        <h3>{{$blog_value->title}}</h3>
+                                        <p>Author <span>{{$blog_value->author}}</span></p>
+                                        <p>{{$blog_value->desc}} </p>
+                                        <a href="{{url('single-blog-details/'.$blog_value->blog_id)}}" class="btn btn-danger">Read more...</a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
     			</div>
-    			<div class="col-md-4">
-    				<div class="blog-box">
-    					<img src="{{asset('images/img3.jpg')}}" alt="blog1" />
-    					<h3>Sample blog post 3</h3>
-    					<p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-    					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-    					<a href="detail.html" class="btn btn-danger">Read more...</a>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-box">
-    					<img src="{{asset('images/img4.jpg')}}" alt="blog1" />
-    					<h3>Sample blog post 4</h3>
-    					<p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-    					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-    					<a href="detail.html" class="btn btn-danger">Read more...</a>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-box">
-    					<img src="{{asset('images/img5.jpg')}}" alt="blog1" />
-    					<h3>Sample blog post 5</h3>
-    					<p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-    					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-    					<a href="detail.html" class="btn btn-danger">Read more...</a>
-    				</div>
-    			</div>
-    			<div class="col-md-4">
-    				<div class="blog-box">
-    					<img src="{{asset('images/img6.jpg')}}" alt="blog1" />
-    					<h3>Sample blog post 6</h3>
-    					<p>by <span>RSGiTECH</span> on <span>October 22, 2018</span></p>
-    					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-    					<a href="detail.html" class="btn btn-danger">Read more...</a>
-    				</div>
-    			</div>
+
     		</div>
     	</div>
     </section>
