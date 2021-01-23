@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\blogs;
 use App\Models\categoeries;
+use Illuminate\Support\Facades\URL;
 
 class AddblogController extends Controller
 {
@@ -20,8 +21,9 @@ class AddblogController extends Controller
 
     public function add_blog(Request $req)
     {
-        // echo "<pre>";
-        // print_r($_POST);
+
+        $url=URL::to("/");
+        echo $url;
 
         $blog= new blogs;
         $blog->cate_name=$req->input('cate');
@@ -34,7 +36,8 @@ class AddblogController extends Controller
         $file_name=$file->getClientOriginalName();
         $destinationPath = 'uploads';
         $file->move($destinationPath, $file->getClientOriginalName());
-        $blog->img_name=$file_name;
+        $url=URL::to("/").'/uploads/'.$file->getClientOriginalName();
+        $blog->img_name=$url;
         $blog->save();
         return redirect('/admin-panel/add-blog')->with('response', 'Everything is Ok');
 
