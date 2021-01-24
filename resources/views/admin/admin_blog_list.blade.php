@@ -34,7 +34,7 @@
                                     <td><img src="{{ $blog_details->img_name }}" style="height:50px;width:50px;border-radius:50%" ></td>
                                     <td>{{ $blog_details->title }}</td>
                                     <td>{{ $blog_details->author }}</td>
-                                    <td>{{ $blog_details->desc }}</td>
+                                    <td>{{ Str::limit($blog_details->desc, 10) }}</td>
                                     <td>
                                         <a href="{{ url('/admin-panel/admin-blog-list-edit/'.$blog_details->blog_id) }}" class="btn btn-info btn-sm">Edit</a>
                                         <a href="#" class="btn btn-danger btn-sm">Delete</a>
@@ -43,7 +43,13 @@
                                 @endforeach
 
                             </table>
+                            {{ $blog_data->links() }}
                         </div>
+                        <style>
+                            .w-5{
+                                display:none;
+                            }
+                        </style>
                     </div>
         		</div>
             </div>

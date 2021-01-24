@@ -26,6 +26,8 @@ Route::get('/contact-us', [App\Http\Controllers\ContactController::class, 'index
 Route::get('/admin-panel', [App\Http\Controllers\AdminController::class, 'index']);
 Route::get('/admin-panel/admin-blog-list', [App\Http\Controllers\AdminBlogListController::class, 'index']);
 Route::get('/admin-panel/admin-blog-list-edit/{id}', [App\Http\Controllers\AdminBlogListController::class, 'edit']);
+Route::post('/admin-panel/admin-blog-list-update/{id}', [App\Http\Controllers\AdminBlogListController::class, 'update']);
+
 Route::get('/single-blog-details/{id}', [App\Http\Controllers\UserController::class, 'show']);
 
 Route::get('/admin-panel/add-blog', [App\Http\Controllers\AddblogController::class, 'index']);
