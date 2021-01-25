@@ -32,6 +32,9 @@
     			<div class="col-md-8">
                     <div class="container-fluid">
                         <div class="row">
+                            @if(session('response'))
+                                <div class="alert alert-success">{{session('response')}}</div>
+                            @endif
                             @foreach($blog_data as $blog_value)
                                 <div class="col-md-4">
                                     <div class="blog-box">

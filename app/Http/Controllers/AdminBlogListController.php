@@ -51,7 +51,7 @@ class AdminBlogListController extends Controller
             DB::table('blogs')
                   ->where('blog_id', $id)
                   ->update(['cate_name'=>$req->catename,'title'=>$req->title,'author'=>$req->author,'desc'=>$req->description,'img_name'=>$req->prev_img]);
-                  return redirect('/admin-panel/admin-blog-list')->with('response','Update Successfully');
+                  return redirect('/admin-panel/admin-blog-list')->with('response', 'Update Successfully');
         }
         else{
 

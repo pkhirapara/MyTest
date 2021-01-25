@@ -29,6 +29,7 @@ Route::get('/admin-panel/admin-blog-list-edit/{id}', [App\Http\Controllers\Admin
 Route::post('/admin-panel/admin-blog-list-update/{id}', [App\Http\Controllers\AdminBlogListController::class, 'update']);
 
 Route::get('/single-blog-details/{id}', [App\Http\Controllers\UserController::class, 'show']);
+Route::post('/single-blog-details-comments/{id}', [App\Http\Controllers\UserController::class, 'comments']);
 
 Route::get('/admin-panel/add-blog', [App\Http\Controllers\AddblogController::class, 'index']);
 Route::post('/admin-panel/add-blog-post', [App\Http\Controllers\AddblogController::class, 'add_blog']);

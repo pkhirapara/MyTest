@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use App\Models\categoeries;
 use App\Models\blogs;
+use App\Models\Comment;
 
 class UserController extends Controller
 {
@@ -36,7 +37,23 @@ class UserController extends Controller
     public function show($id)
     {
         $blog = DB::table('blogs')->where('blog_id', $id)->get();
-        echo "<pre>";
-        print_r($blog);
+        // echo "<pre>";
+        // print_r($blog);
+        return view('user.blog_details', ['blog_detail'=>$blog]);
+    }
+
+    public function comments(Request $req, $id)
+    {
+        // echo "<pre>";
+        // print_r($_POST);
+        // die();
+        $comment=new comment();
+        $comment->blog_id=$req->input('blog_id');
+        $comment->username=$req->input('username');
+        $comment->email_id=$req->input('email_id');
+        $comment->comment=$req->input('desc');
+        $comment->save();
+
+        return redirect('/single-blog-details/'.$id)->with('response', 'comment added successfully');
     }
 }
