@@ -41,7 +41,7 @@
                                         <img src="{{$blog_value->img_name}}" alt="blog1" style="height:200px;width:100%"/>
                                         <h3>{{$blog_value->title}}</h3>
                                         <p>Author <span>{{$blog_value->author}}</span></p>
-                                        <p>{{$blog_value->desc}} </p>
+                                        <p>{{$blog_value->desc, 100}} </p>
                                         <a href="{{url('single-blog-details/'.$blog_value->blog_id)}}" class="btn btn-danger">Read more...</a>
                                     </div>
                                 </div>

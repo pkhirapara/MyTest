@@ -35,13 +35,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>john@example.com</td>
-                                        </tr>
+                                        @foreach($comment_data as $comm_value)
+                                            <tr>
+                                                <td>{{ $comm_value->username }}</td>
+                                                <td>{{ $comm_value->email_id }}</td>
+                                                <td>{{ $comm_value->comment }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
+                                <div align="center"> {{ $comment_data->links() }} </div>
+
+                                    <style>
+                                        .w-5{
+                                            display:none;
+                                        }
+                                    </style>
                             </div>
                         </div>
                     <div class="row">

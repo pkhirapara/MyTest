@@ -19,6 +19,7 @@ class UserController extends Controller
 
         $cate=categoeries::all();
         $blog=blogs::all();
+        // $blog = DB::table('comments')->where('blog_id', $id)->get();
         // echo "<pre>";
         // print_r($cate);
         // die();
@@ -37,9 +38,10 @@ class UserController extends Controller
     public function show($id)
     {
         $blog = DB::table('blogs')->where('blog_id', $id)->get();
+        $comm = DB::table('comments')->where('blog_id', $id)->paginate(2);
         // echo "<pre>";
         // print_r($blog);
-        return view('user.blog_details', ['blog_detail'=>$blog]);
+        return view('user.blog_details', ['blog_detail'=>$blog, 'comment_data'=>$comm]);
     }
 
     public function comments(Request $req, $id)
